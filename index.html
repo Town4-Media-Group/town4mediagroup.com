@@ -15,7 +15,9 @@
   .logo span { background:linear-gradient(90deg,var(--fire),var(--sun)); -webkit-background-clip:text; background-clip:text; color:transparent; }
   nav a { color:var(--dim); text-decoration:none; font-size:.88rem; margin-left:1.4rem; }
   nav a:hover { color:var(--ink); }
-  .hero { padding:4.5rem 0 4rem; }
+  .hero { padding:4.5rem 0 4rem; display:grid; grid-template-columns:1fr auto; gap:2rem; align-items:center; }
+  .hero-logo { height:200px; width:auto; opacity:.92; }
+  @media (max-width:700px){ .hero{grid-template-columns:1fr;} .hero-logo{display:none;} }
   .kicker { color:var(--sun); font-size:.8rem; letter-spacing:.22em; text-transform:uppercase; font-weight:700; }
   .hero h1 { font-size:clamp(2rem,5vw,3.2rem); font-weight:800; line-height:1.15; margin:.7rem 0 1rem; max-width:720px; }
   .hero h1 em { font-style:normal; background:linear-gradient(90deg,var(--fire),var(--sun)); -webkit-background-clip:text; background-clip:text; color:transparent; }
@@ -53,10 +55,13 @@
   </nav>
 
   <div class="hero">
-    <div class="kicker">Design &middot; Print &middot; Automation</div>
-    <h1>Creative work and <em>working systems</em> for small business.</h1>
-    <p>Town4 Media Group is a design and print-on-demand studio that also builds the workflows behind the work — templates, AI assistants, and business communications that run themselves.</p>
-    <a class="cta" href="#request">Request Custom Work</a>
+    <div>
+      <div class="kicker">Design &middot; Print &middot; Automation</div>
+      <h1>Creative work and <em>working systems</em> for small business.</h1>
+      <p>Town4 Media Group is a design and print-on-demand studio that also builds the workflows behind the work — templates, AI assistants, and business communications that run themselves.</p>
+      <a class="cta" href="#request">Request Custom Work</a>
+    </div>
+    <img class="hero-logo" src="/logo-white.png" alt="Town4 Media Group logo">
   </div>
 
   <section id="design">
