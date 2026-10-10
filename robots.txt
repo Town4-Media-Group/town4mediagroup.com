@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://town4mediagroup.com/sitemap.xml
