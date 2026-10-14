@@ -45,9 +45,26 @@
   footer { border-top:1px solid #2b2b40; padding:2rem 0; font-size:.82rem; color:var(--dim); }
   footer .wrap { display:flex; flex-wrap:wrap; gap:.8rem; justify-content:space-between; }
   footer a { color:var(--sun); text-decoration:none; }
+  footer .brand-line { width:100%; }
+  .tile a { color:var(--sun); text-decoration:none; }
+  .tile a:hover { color:var(--ink); }
 </style>
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <link rel="canonical" href="https://town4mediagroup.com/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Town4 Media Group",
+  "url": "https://town4mediagroup.com/",
+  "telephone": "+1-936-297-6464",
+  "parentOrganization": {
+    "@type": "Organization",
+    "name": "Advisors Group International Inc.",
+    "url": "https://advisorsgroupintl.com/"
+  }
+}
+</script>
 </head>
 <body>
 <div class="wrap">
@@ -87,6 +104,15 @@
     <div class="note"><b>Built by an operator, not a vendor.</b> Every system we sell is one we run in our own businesses first — learn it, implement it, then package it for you.</div>
   </section>
 
+  <section id="shops">
+    <h2>Our shops</h2>
+    <div class="grid">
+      <div class="tile"><h3><a href="https://travelshertz.com/">Travel Shertz</a></h3><p>Travel goods from our shop family.</p></div>
+      <div class="tile"><h3><a href="https://thesouvenirsafari.com/">Souvenir Safari</a></h3><p>Souvenirs and keepsakes from our shop family.</p></div>
+      <div class="tile"><h3><a href="https://txshirtworks.com/">Texas Shirt Works</a></h3><p>Apparel from our shop family.</p></div>
+    </div>
+  </section>
+
   <section id="request">
     <h2>Start a Request</h2>
     <p style="color:var(--dim); max-width:620px; margin-bottom:1.2rem;">Custom design, a vectorize/recreation job, or a workflow build — tell us what you need. Call or text <strong style="color:var(--ink)">(936) 297-6464</strong>, or use the form.</p>
@@ -117,6 +143,7 @@
   <div class="wrap">
     <div>&copy; 2026 Town4 Media Group, a brand of Advisors Group International Inc &middot; Montgomery, Texas &middot; (936) 297-6464</div>
     <div><a href="/privacy.html">Privacy Policy</a> &middot; <a href="/terms.html">Terms of Use</a></div>
+    <div class="brand-line">Town4 Media Group, a brand of Advisors Group International Inc.</div>
   </div>
 </footer>
 
