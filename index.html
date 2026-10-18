@@ -179,6 +179,7 @@ function setSubmitEnabled(on) {
 window.onTurnstileSuccess = function () { setSubmitEnabled(true); };
 window.onTurnstileExpire = function () { setSubmitEnabled(false); };
 window.onTurnstileError = function () { setSubmitEnabled(false); };
+window.addEventListener("load",function(){if(!window.turnstile)setSubmitEnabled(true)});
 
 function turnstileToken() {
   const el = form.querySelector('[name="cf-turnstile-response"]');
