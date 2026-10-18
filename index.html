@@ -153,8 +153,8 @@
       <label class="optin"><input type="checkbox" id="sms_optin" name="sms_optin" value="yes">
         <span>I agree to receive text messages from Town4 Media Group (a brand of Advisors Group International Inc) under the <b>Client Care Notifications</b> program (responses to inquiries, project and order status, shipping notices, requests for missing information). Message frequency varies. Message and data rates may apply. Reply STOP to cancel, HELP for help. Consent is not a condition of any purchase. See our <a href="/privacy.html">Privacy Policy</a> and <a href="/terms.html">Terms of Use</a>.</span></label>
       <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-10000px">
-      <div class="cf-turnstile" data-sitekey="0x4AAAAAAD8MVIhSPLH80f6N" data-theme="auto"></div>
-      <div><button type="submit">Submit Request</button><div id="form-status" role="status"></div></div>
+      <div class="cf-turnstile" data-sitekey="0x4AAAAAAD8MVIhSPLH80f6N" data-theme="auto" data-callback="onTurnstileSuccess" data-expired-callback="onTurnstileExpire" data-error-callback="onTurnstileError"></div>
+      <div><button type="submit" disabled>Submit Request</button><div id="form-status" role="status"></div></div>
     </form>
   </section>
 </div>
@@ -169,18 +169,59 @@
 
 <script>
 const ENDPOINT = "https://agii-vapi-bridge-9383.twil.io/web-contact";
-document.getElementById("contact-form").addEventListener("submit", async (e) => {
+const form = document.getElementById("contact-form");
+const submitBtn = form.querySelector('button[type="submit"]');
+let inFlight = false;
+
+function setSubmitEnabled(on) {
+  submitBtn.disabled = !on || inFlight;
+}
+window.onTurnstileSuccess = function () { setSubmitEnabled(true); };
+window.onTurnstileExpire = function () { setSubmitEnabled(false); };
+window.onTurnstileError = function () { setSubmitEnabled(false); };
+
+function turnstileToken() {
+  const el = form.querySelector('[name="cf-turnstile-response"]');
+  if (el && el.value) return el.value;
+  if (window.turnstile && typeof window.turnstile.getResponse === "function") {
+    try { return window.turnstile.getResponse() || ""; } catch (e) { return ""; }
+  }
+  return "";
+}
+
+function resetTurnstile() {
+  if (window.turnstile && typeof window.turnstile.reset === "function") {
+    window.turnstile.reset();
+  }
+  setSubmitEnabled(false);
+}
+
+form.addEventListener("submit", async (e) => {
   e.preventDefault();
+  if (inFlight) return;
   const f = e.target, s = document.getElementById("form-status");
   const data = Object.fromEntries(new FormData(f).entries());
   data.business = "T4"; data.source = "town4mediagroup.com";
   if (!data.email && !data.phone) { s.textContent = "Please provide an email or phone number so we can reach you."; return; }
   if (ENDPOINT.startsWith("PENDING")) { s.textContent = "Our online form is being upgraded — please call or text (936) 297-6464."; return; }
+  const token = turnstileToken();
+  if (!token) {
+    s.textContent = "Please wait for the verification check to finish, then press Send.";
+    return;
+  }
+  data["cf-turnstile-response"] = token;
+  inFlight = true;
+  setSubmitEnabled(false);
   try {
     const r = await fetch(ENDPOINT, { method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify(data) });
     if (!r.ok) throw 0;
     f.reset(); s.textContent = "Request received — we'll be in touch shortly.";
-  } catch { s.textContent = "Something went wrong. Please call or text (936) 297-6464."; }
+  } catch {
+    s.textContent = "Something went wrong. Please call or text (936) 297-6464.";
+  } finally {
+    inFlight = false;
+    resetTurnstile();
+  }
 });
 </script>
 </body>
