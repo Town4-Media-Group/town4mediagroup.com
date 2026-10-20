@@ -22,7 +22,13 @@
   nav a:hover { color:var(--ink); }
   .hero { padding:4.5rem 0 4rem; display:grid; grid-template-columns:1fr auto; gap:2rem; align-items:center; }
   .hero-logo { height:200px; width:auto; opacity:.92; }
-  @media (max-width:700px){ .hero{grid-template-columns:1fr;} .hero-logo{display:none;} }
+  @media (max-width:700px){
+    .hero{grid-template-columns:1fr;}
+    .hero-logo{display:none;}
+    nav { flex-wrap:wrap; gap:.7rem; }
+    nav > div:last-child { display:flex; flex-wrap:wrap; }
+    nav a { margin-left:0; margin-right:1rem; }
+  }
   .kicker { color:var(--sun); font-size:.8rem; letter-spacing:.22em; text-transform:uppercase; font-weight:700; }
   .hero h1 { font-size:clamp(2rem,5vw,3.2rem); font-weight:800; line-height:1.15; margin:.7rem 0 1rem; max-width:720px; }
   .hero h1 em { font-style:normal; background:linear-gradient(90deg,var(--fire),var(--sun)); -webkit-background-clip:text; background-clip:text; color:transparent; }
@@ -90,7 +96,7 @@
 <div class="wrap">
   <nav>
     <div class="logo">TOWN<span>4</span> MEDIA GROUP</div>
-    <div><a href="#systems">Systems</a><a href="#design">Design</a><a href="#request">Start a Request</a></div>
+    <div><a href="#systems">Systems</a><a href="/shopify/">Shopify</a><a href="#design">Design</a><a href="#request">Start a Request</a></div>
   </nav>
 
   <div class="hero">
