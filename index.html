@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Town4 Media Group — AI Workflows, Templates & AI Solutions Architecture for Business</title>
+<title>Town4 Media Group: AI Workflows, Templates & AI Solutions Architecture for Business</title>
 <meta name="description" content="Town4 Media Group uses AI to develop workflows and templates for business through AI solutions architecture for everyday operators.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Town4 Media Group">
 <meta property="og:url" content="https://town4mediagroup.com/">
-<meta property="og:title" content="Town4 Media Group — AI Workflows, Templates & AI Solutions Architecture">
+<meta property="og:title" content="Town4 Media Group: AI Workflows, Templates & AI Solutions Architecture">
 <meta property="og:description" content="AI workflows and templates for everyday businesses, developed through agentic engineering and AI solutions architecture.">
 <style>
   :root { --bg:#14141f; --panel:#1d1d2e; --ink:#eceaf4; --dim:#9a97ad; --fire:#e8452c; --sun:#f5a623; }
@@ -114,17 +114,17 @@
     <div class="grid">
       <div class="tile"><h3>Notion Templates</h3><p>Business command centers, project and task systems, and client trackers built in Notion.</p></div>
       <div class="tile"><h3>Google Workspace &amp; Microsoft 365</h3><p>Ready-to-use document, spreadsheet, and workflow templates for the tools you already own.</p></div>
-      <div class="tile"><h3>AI Skills &amp; Assistants</h3><p>Practical AI skills for everyday operations, plus Vapi voice assistants that answer, book, and log your calls.</p></div>
-      <div class="tile"><h3>Business Communications</h3><p>Twilio-based phone and messaging setups — business lines that sound bigger than one person.</p></div>
-      <div class="tile"><h3>Custom Workflows</h3><p>Systems tailored to how you actually work — including solo-entrepreneur and ADHD-optimized designs.</p></div>
+      <div class="tile"><h3>AI Skills &amp; Assistants</h3><p>Practical AI skills for everyday operations, plus AI voice assistants that answer, book, and log your calls.</p></div>
+      <div class="tile"><h3>Business Communications</h3><p>Twilio-based phone and messaging setups: business lines that sound bigger than one person.</p></div>
+      <div class="tile"><h3>Custom Workflows</h3><p>Systems tailored to how you actually work, including solo-entrepreneur and ADHD-optimized designs.</p></div>
     </div>
-    <div class="note"><b>Built by an operator, not a vendor.</b> Every system we sell is one we run in our own businesses first — learn it, implement it, then package it for you.</div>
+    <div class="note"><b>Built by an operator, not a vendor.</b> Every system we sell is one we run in our own businesses first: learn it, implement it, then package it for you.</div>
   </section>
 
   <section id="design">
-    <h2>Design &amp; Print</h2>
+    <h2>Design</h2>
     <div class="grid">
-      <div class="tile"><h3>Custom Design &amp; Artwork</h3><p>Original designs created for a specific purpose — apparel, branding, events, products.</p></div>
+      <div class="tile"><h3>Custom Design &amp; Artwork</h3><p>Original designs created for a specific purpose: apparel, branding, events, products.</p></div>
       <div class="tile"><h3>Vectorize &amp; Recreation</h3><p>Turn low-resolution logos and old artwork into clean, scalable, production-ready vector files.</p></div>
       <div class="tile"><h3>Shop Family Design</h3><p>Artwork and product designs for our shops: Travel Shertz, Souvenir Safari, and Texas Shirt Works.</p></div>
     </div>
@@ -141,7 +141,7 @@
 
   <section id="request">
     <h2>Start a Request</h2>
-    <p style="color:var(--dim); max-width:620px; margin-bottom:1.2rem;">Custom design, a vectorize/recreation job, or a workflow build — tell us what you need. Call or text <strong style="color:var(--ink)"><a href="tel:+19362976464">(936) 297-6464</a></strong>, or use the form.</p>
+    <p style="color:var(--dim); max-width:620px; margin-bottom:1.2rem;">Custom design, a vectorize/recreation job, or a workflow build. Tell us what you need. Call or text <strong style="color:var(--ink)"><a href="tel:+19362976464">(936) 297-6464</a></strong>, or use the form.</p>
     <form id="contact-form">
       <div><label for="name">Full Name *</label><input id="name" name="name" required autocomplete="name"></div>
       <div><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email"></div>
@@ -210,7 +210,7 @@ form.addEventListener("submit", async (e) => {
   const data = Object.fromEntries(new FormData(f).entries());
   data.business = "T4"; data.source = "town4mediagroup.com";
   if (!data.email && !data.phone) { s.textContent = "Please provide an email or phone number so we can reach you."; return; }
-  if (ENDPOINT.startsWith("PENDING")) { s.textContent = "Our online form is being upgraded — please call or text (936) 297-6464."; return; }
+  if (ENDPOINT.startsWith("PENDING")) { s.textContent = "Our online form is being upgraded. Please call or text (936) 297-6464."; return; }
   const token = turnstileToken();
   if (!token) {
     s.textContent = "Please wait for the verification check to finish, then press Send.";
@@ -222,7 +222,7 @@ form.addEventListener("submit", async (e) => {
   try {
     const r = await fetch(ENDPOINT, { method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify(data) });
     if (!r.ok) throw 0;
-    f.reset(); s.textContent = "Request received — we'll be in touch shortly.";
+    f.reset(); s.textContent = "Request received. We'll be in touch shortly.";
   } catch {
     s.textContent = "Something went wrong. Please call or text (936) 297-6464.";
   } finally {
